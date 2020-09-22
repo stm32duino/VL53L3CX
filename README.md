@@ -13,9 +13,9 @@ There are 2 examples with the VL53L3CX library.
 To use these examples you need to connect the vl53l3cx sensor directly to the board.
 instructions to connect the pins of vl53l3cx to the board:
 - pin 1 (Interrupt) connected to pin A2 
-- pin 2 (SCL_I) connected to pin SCL with a 4kiloohm resistor
+- pin 2 (SCL_I) connected to pin SCL with a Pull-Up resistor of 4.7 KOhm
 - pin 3 (XSDN_I) connected to pin A1
-- pin 4 (SDA_I) connected to pin SDA with a 4kiloohm resistor
+- pin 4 (SDA_I) connected to pin SDA with a Pull-Up resistor of 4.7 KOhm
 - pin 5 (VDD) connected to 3.3V VDD
 - pin 6 (GND) connected to GND
 - pins 7,8,10,9 are not connected.
