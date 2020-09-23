@@ -3477,7 +3477,7 @@ typedef int8_t VL53LX_Error;
 /*!<  Zone dynamic config GPH ID check failed - API out of sync */
 
 #define VL53LX_ERROR_XTALK_EXTRACTION_NO_SAMPLE_FAIL   ((VL53LX_Error) - 22)
-/*!<  Thrown when run_xtalk_extraction fn has 0 succesful samples
+/*!<  Thrown when run_xtalk_extraction fn has 0 successful samples
 * when using the full array to sample the xtalk. In this case there is
 * not enough information to generate new Xtalk parm info. The function
 * will exit and leave the current xtalk parameters unaltered
@@ -3572,7 +3572,7 @@ typedef int8_t VL53LX_Error;
 * notification only, xtalk pulse and shape have still been generated
 */
 #define VL53LX_WARNING_XTALK_NO_SAMPLES_FOR_GRADIENT     ((VL53LX_Error) - 39)
-/*!< Thrown to notify that some of teh xtalk samples used for gradient
+/*!< Thrown to notify that some of the xtalk samples used for gradient
 * generation did not yield valid ranging pulse data while attempting to
 * measure the xtalk signal in vl53lx_run_xtalk_extract(). This can
 * signify that any one of the zones 0-3 yielded no successful samples.
@@ -7988,13 +7988,13 @@ typedef struct {
 typedef uint8_t VL53LX_SmudgeCorrectionModes;
 
 #define VL53LX_SMUDGE_CORRECTION_NONE       ((VL53LX_SmudgeCorrectionModes)  0)
-/*!< Smudge correction is applied continously accross the rangings */
+/*!< Smudge correction is applied continuously across the rangings */
 #define VL53LX_SMUDGE_CORRECTION_CONTINUOUS ((VL53LX_SmudgeCorrectionModes)  1)
-/*!< Smudge correction is applied continously accross the rangings */
+/*!< Smudge correction is applied continuously across the rangings */
 #define VL53LX_SMUDGE_CORRECTION_SINGLE     ((VL53LX_SmudgeCorrectionModes)  2)
-/*!< Smudge correction is applied only once accross the rangings */
+/*!< Smudge correction is applied only once across the rangings */
 #define VL53LX_SMUDGE_CORRECTION_DEBUG      ((VL53LX_SmudgeCorrectionModes)  3)
-/*!< Smudge detection is applied continously but Xtalk values are not
+/*!< Smudge detection is applied continuously but Xtalk values are not
  * updated automatically within the driver
  */
 
