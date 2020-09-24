@@ -61,6 +61,11 @@
 #define DEV_I2C Wire
 #define SerialPort Serial
 
+#ifndef LED_BUILTIN
+#define LED_BUILTIN 13
+#endif
+#define LedPin LED_BUILTIN
+
 // Components.
 VL53LX *sensor_vl53lx_sat;
 
@@ -70,7 +75,7 @@ VL53LX *sensor_vl53lx_sat;
 void setup()
 {
    // Led.
-   pinMode(13, OUTPUT);
+   pinMode(LedPin, OUTPUT);
 
    // Initialize serial for output.
    SerialPort.begin(115200);
@@ -107,7 +112,7 @@ void loop()
    } while (!NewDataReady);
 
    //Led on
-   digitalWrite(13, HIGH);
+   digitalWrite(LedPin, HIGH);
 
    if((!status)&&(NewDataReady!=0))
    {
@@ -136,5 +141,5 @@ void loop()
       }
    }
 
-   digitalWrite(13, LOW);
+   digitalWrite(LedPin, LOW);
 }
