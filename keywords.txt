@@ -7,13 +7,15 @@
 #######################################
 
 ComponentObject	KEYWORD1
-LightSensor	KEYWORD1
 RangeSensor	KEYWORD1
 VL53L3CX	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
+
+begin	KEYWORD2
+end	KEYWORD2
 VL53LX_On KEYWORD2
 VL53LX_Off KEYWORD2
 InitSensor KEYWORD2
