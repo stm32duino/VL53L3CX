@@ -67,7 +67,7 @@
 #define LedPin LED_BUILTIN
 
 // Components.
-VL53LX *sensor_vl53lx_sat;
+VL53LX sensor_vl53lx_sat(&DEV_I2C, A1);
 
 
 /* Setup ---------------------------------------------------------------------*/
@@ -84,17 +84,17 @@ void setup()
    // Initialize I2C bus.
    DEV_I2C.begin();
 
-   // Create VL53LX satellite component.
-   sensor_vl53lx_sat = new VL53LX(&DEV_I2C, A1, A2);
+   // Configure VL53LX satellite component.
+   sensor_vl53lx_sat.begin();
 
    // Switch off VL53LX satellite component.
-   sensor_vl53lx_sat->VL53LX_Off();
+   sensor_vl53lx_sat.VL53LX_Off();
 
    //Initialize VL53LX satellite component.
-   sensor_vl53lx_sat->InitSensor(0x12);
+   sensor_vl53lx_sat.InitSensor(0x12);
 
    // Start Measurements
-   sensor_vl53lx_sat->VL53LX_StartMeasurement();
+   sensor_vl53lx_sat.VL53LX_StartMeasurement();
 }
 
 void loop()
@@ -108,7 +108,7 @@ void loop()
 
    do
    {
-      status = sensor_vl53lx_sat->VL53LX_GetMeasurementDataReady(&NewDataReady);
+      status = sensor_vl53lx_sat.VL53LX_GetMeasurementDataReady(&NewDataReady);
    } while (!NewDataReady);
 
    //Led on
@@ -116,7 +116,7 @@ void loop()
 
    if((!status)&&(NewDataReady!=0))
    {
-      status = sensor_vl53lx_sat->VL53LX_GetMultiRangingData(pMultiRangingData);
+      status = sensor_vl53lx_sat.VL53LX_GetMultiRangingData(pMultiRangingData);
       no_of_object_found=pMultiRangingData->NumberOfObjectsFound;
       snprintf(report, sizeof(report), "VL53LX Satellite: Count=%d, #Objs=%1d ", pMultiRangingData->StreamCount, no_of_object_found);
       SerialPort.print(report);
@@ -137,7 +137,7 @@ void loop()
       SerialPort.println("");
       if (status==0)
       {
-         status = sensor_vl53lx_sat->VL53LX_ClearInterruptAndStartMeasurement();
+         status = sensor_vl53lx_sat.VL53LX_ClearInterruptAndStartMeasurement();
       }
    }
 
